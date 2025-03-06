@@ -1,9 +1,11 @@
+
+
 import React from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import * as THREE from "three";
 
 const Julia = ({ textureUrl, color }) => {
-  const { nodes, materials } = useGLTF("./models/julia.gltf");
+    const { nodes, materials } = useGLTF("/react-app/models/julia.gltf");
 
   
   const texture = textureUrl ? useTexture(textureUrl) : null;
@@ -12,7 +14,7 @@ const Julia = ({ textureUrl, color }) => {
   if (texture) {
     texture.rotation = Math.PI; 
     texture.center = new THREE.Vector2(0.5, 0.5); 
-    texture.encoding = THREE.SRGBColorSpace; // Updated for Three.js r154+
+    texture.encoding = THREE.SRGBColorSpace; 
   }
 
   
@@ -59,6 +61,6 @@ const Julia = ({ textureUrl, color }) => {
   );
 };
 
-useGLTF.preload("./models/julia.gltf");
+useGLTF.preload("/react-app/models/julia.gltf");
 
 export default Julia;
